@@ -1,6 +1,7 @@
 import React from "react";
-import {data} from '../data';
-import Navbar from './Navbar'
+import { data } from "../data";
+import Navbar from "./Navbar";
+import MovieCard from "./MovieCard";
 
 function App() {
   return (
@@ -13,14 +14,14 @@ function App() {
         </div>
 
         <div className="list">
-          {data.map(movie => {
-            <MovieCard movie ={movie}/ >
-          })}
-        </div>
+          {data.map(movie => (
+            <MovieCard movie={movie} />
+          ))}
 
+        </div>
       </div>
-    </div>);
+    </div>
+  );
 }
 
 export default App;
-
