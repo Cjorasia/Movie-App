@@ -1,5 +1,6 @@
 import React from "react";
 import {data} from '../data';
+import Navbar from './Navbar'
 
 function App() {
   return (
@@ -22,3 +23,4 @@ function App() {
 }
 
 export default App;
+
