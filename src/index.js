@@ -12,4 +12,4 @@ import movies from './reducers';
 const store = createStore(movies);
 console.log("store", store);
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App store={store} />, document.getElementById("root"));
