@@ -6,19 +6,7 @@ const initialMoviesState = {
     showFavourites: false
 }
 
-export default function movies(state =initialMoviesState, action){
-
-//     if(action.type ===  ADD_MOVIES ){
-//         // return new state, cannot modify
-//         return {
-//             ...state,
-//             list: action.movies
-//         }; 
-//     }
-
-//     return state;
-
-// BETTER USE SWITCH
+export function movies(state =initialMoviesState, action){
 
     switch (action.type) {
         case ADD_MOVIES:
@@ -51,5 +39,29 @@ export default function movies(state =initialMoviesState, action){
 
         default: 
             return state;
+    }
+}
+
+const initialSeachState = {
+    result: {}
+};
+
+export function search (state = initialSeachState, action){
+    return state;
+}
+
+
+// Will pass rootReducer to Store method as it only takes one reducer
+
+const initialRootState = {
+    movies: initialMoviesState,
+    search: initialSeachState
+};
+
+// Called everty time action is dispatched
+export default function rootReducer (state= initialRootState, action) {
+    return {
+        movies: movies(state.movies, action),
+        search: search(state.search, action)
     }
 }
