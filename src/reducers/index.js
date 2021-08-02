@@ -57,18 +57,18 @@ export function search(state = initialSeachState, action) {
 
 // Will pass rootReducer to Store method as it only takes one reducer
 
-const initialRootState = {
-  movies: initialMoviesState,
-  search: initialSeachState,
-};
+// const initialRootState = {
+//   movies: initialMoviesState,
+//   search: initialSeachState,
+// };
 
-// Called everty time action is dispatched
-export default function rootReducer(state = initialRootState, action) {
-  return {
-    movies: movies(state.movies, action),
-    search: search(state.search, action),
-  };
-}
+// // Called everty time action is dispatched
+// export default function rootReducer(state = initialRootState, action) {
+//   return {
+//     movies: movies(state.movies, action),
+//     search: search(state.search, action),
+//   };
+// }
 
 export default combineReducers ({
     movies,
