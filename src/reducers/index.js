@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import {
   ADD_MOVIES,
+  ADD_SEARCH_RESULT,
   ADD_TO_FAVOURITES,
   REMOVE_FROM_FAVOURITES,
   SET_SHOW_FAVOURITES,
+  ADD_MOVIE_TO_LIST
 } from "../actions";
 
 const initialMoviesState = {
@@ -42,6 +44,12 @@ export function movies(state = initialMoviesState, action) {
         showFavourites: action.val,
       };
 
+    case ADD_MOVIE_TO_LIST:
+      return {
+        ...state,
+        list: [action.movie, ...state.list]
+      }
+
     default:
       return state;
   }
@@ -49,10 +57,32 @@ export function movies(state = initialMoviesState, action) {
 
 const initialSeachState = {
   result: {},
+  showSearchResults: false
 };
 
 export function search(state = initialSeachState, action) {
-  return state;
+
+
+  switch (action.type) {
+
+    case ADD_SEARCH_RESULT:
+
+      return {
+        ...state,
+        result: action.movie,
+        showSearchResults: true
+      };
+
+      case ADD_MOVIE_TO_LIST:
+        return {
+          ...state,
+          showSearchResults: false
+        }
+
+ 
+    default:
+      return state;
+  }
 }
 
 // Will pass rootReducer to Store method as it only takes one reducer
