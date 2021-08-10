@@ -101,6 +101,6 @@ export function search(state = initialSeachState, action) {
 // }
 
 export default combineReducers ({
-    movies,
+    movies, 
     search
 });

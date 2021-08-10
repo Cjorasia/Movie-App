@@ -25,6 +25,7 @@ const thunk = ({dispatch, getState}) => (next) => (action) => {
 
 // Creating redux store
 const store = createStore(rootReducer, applyMiddleware(logger,thunk));
+
 console.log("store", store);
 
 ReactDOM.render(<App store={store} />, document.getElementById("root"));
